@@ -77,9 +77,10 @@ function veHinhD(n) {
 }
 
 function veHinh(n, getColumn, checkPoint) {
+    const soCot = getColumn(n);
     for(let i = 1; i <= n; i++) {
         let str = '';
-        for(let j = 1; j <= getColumn(n); j++) {
+        for(let j = 1; j <= soCot; j++) {
             const dieuKien = checkPoint(i, j, n);
             str += (dieuKien ? '*' : ' ');
         }
@@ -95,9 +96,7 @@ function hinhB(i, j, n) {
     return j > n - i;
 }
 
-function hinhD(i, j, n) {
-    return Math.abs(j - n) < i
-}
+
 
 function columnB(n) {
     return n;
@@ -108,5 +107,13 @@ function columnD(n) {
 }
 
 // veHinh(5, hinhA);
-veHinh(5, columnB, hinhB);
-veHinh(5, columnD, hinhD);
+// veHinh(5, columnB, hinhB);
+veHinh(
+    5, 
+    function(n) {
+        return 2 * n - 1;
+    }, 
+    function (i, j, n) {
+        return Math.abs(j - n) < i
+    }
+);
