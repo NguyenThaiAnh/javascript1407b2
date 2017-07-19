@@ -76,5 +76,37 @@ function veHinhD(n) {
     }
 }
 
+function veHinh(n, getColumn, checkPoint) {
+    for(let i = 1; i <= n; i++) {
+        let str = '';
+        for(let j = 1; j <= getColumn(n); j++) {
+            const dieuKien = checkPoint(i, j, n);
+            str += (dieuKien ? '*' : ' ');
+        }
+        console.log(str);
+    }
+}
 
-veHinhD(5);
+function hinhA(i, j, n) {
+    return j <= i;
+}
+
+function hinhB(i, j, n) {
+    return j > n - i;
+}
+
+function hinhD(i, j, n) {
+    return Math.abs(j - n) < i
+}
+
+function columnB(n) {
+    return n;
+}
+
+function columnD(n) {
+    return 2 * n -1;
+}
+
+// veHinh(5, hinhA);
+veHinh(5, columnB, hinhB);
+veHinh(5, columnD, hinhD);
