@@ -37,4 +37,8 @@ function kiemTraChiaHetCho2(num) {
     return num % 2 === 0;
 }
 
-inSoTheoDieuKien(kiemTraChiaHetCho2);
+function kiemTraSoChinhPhuong(n) {
+    return Math.sqrt(n) % 1 === 0
+}
+
+inSoTheoDieuKien(kiemTraSoChinhPhuong);
